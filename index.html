@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyRescue | Study Smarter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <a href="#" class="brand">
+            <div class="brand-icon">S</div>
+            <span>Study<span class="brand-light">Rescue</span></span>
+        </a>
+
+        <div class="side-label">WORKSPACE</div>
+
+        <nav>
+            <a href="#dashboard" class="nav-link active"><span>⌂</span> Dashboard</a>
+            <a href="#subjects" class="nav-link"><span>▤</span> My Subjects</a>
+            <a href="#planner" class="nav-link"><span>▦</span> Study Planner</a>
+            <a href="#progress" class="nav-link"><span>◷</span> My Progress</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="side-note">
+                <div class="note-icon">✦</div>
+                <h3>Small steps matter.</h3>
+                <p>You don't have to be perfect. Just keep moving forward.</p>
+            </div>
+            <p class="sidebar-footer">MADE FOR YOUR GROWTH ✦</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="date-text" id="todayDate"></p>
+                <h1>Your learning space <span>✦</span></h1>
+            </div>
+            <div class="top-right">
+                <div class="profile-avatar">A</div>
+                <div>
+                    <strong>Student</strong>
+                    <small>Keep growing</small>
+                </div>
+            </div>
+        </header>
+
+        <section id="dashboard">
+
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <span class="welcome-tag">YOUR PERSONAL STUDY COMPANION</span>
+                    <h2>One step at a time.<br>You've got this!</h2>
+                    <p>Plan better, catch up on missed topics, and make every study session count.</p>
+                    <a href="#planner" class="welcome-button">Plan my day <span>→</span></a>
+                </div>
+                <div class="welcome-art">
+                    <div class="art-circle circle-one"></div>
+                    <div class="art-circle circle-two"></div>
+                    <div class="art-book">📚</div>
+                    <div class="art-star">✦</div>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Your overview</h2>
+                    <p>A little progress goes a long way.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon purple">▤</div>
+                    <p>Total subjects</p>
+                    <h3 id="subjectCount">0</h3>
+                    <small>Your learning areas</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <p>Pending topics</p>
+                    <h3 id="pendingCount">0</h3>
+                    <small>Waiting for you</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <p>Completed topics</p>
+                    <h3 id="completedCount">0</h3>
+                    <small>Look at you go!</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon pink">◎</div>
+                    <p>Overall progress</p>
+                    <h3 id="overallProgress">0%</h3>
+                    <small>Your learning journey</small>
+                </div>
+            </div>
+
+            <div class="content-grid" id="progress">
+
+                <div class="panel progress-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Learning progress</h2>
+                            <p>Every completed topic counts.</p>
+                        </div>
+                        <span class="small-badge">ALL TIME</span>
+                    </div>
+
+                    <div class="progress-number">
+                        <strong id="progressText">0%</strong>
+                        <span>completed</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+
+                    <p class="progress-message" id="progressMessage">
+                        Start completing topics to see your progress.
+                    </p>
+                </div>
+
+                <div class="panel exam-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Upcoming exams</h2>
+                            <p>Stay prepared and organised.</p>
+                        </div>
+                        <span class="exam-icon">✎</span>
+                    </div>
+
+                    <form id="examForm" class="exam-form">
+                        <input type="text" id="examName" placeholder="Exam / Subject name" required>
+                        <input type="date" id="examDate" required>
+                        <button type="submit">+ Add exam</button>
+                    </form>
+
+                    <div id="examList" class="exam-list"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="subjects" class="section-block">
+
+            <div class="section-heading">
+                <div>
+                    <h2>My subjects</h2>
+                    <p>Choose a topic and tick it when you complete it.</p>
+                </div>
+                <button class="primary-button" id="addSubjectBtn">+ Add subject</button>
+            </div>
+
+            <div class="subject-grid" id="subjectList"></div>
+
+            <form id="subjectForm" class="inline-form hidden">
+                <h3>Add a new subject</h3>
+                <input type="text" id="subjectName" placeholder="Subject name" required>
+                <input type="text" id="subjectDescription" placeholder="Short description (optional)">
+                <div class="form-actions">
+                    <button type="button" class="secondary-button" id="cancelSubject">Cancel</button>
+                    <button type="submit" class="primary-button">Save subject</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="planner" class="section-block">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Study planner</h2>
+                    <p>Your tasks, your pace, your progress.</p>
+                </div>
+            </div>
+
+            <div class="panel planner-panel">
+                <form id="taskForm" class="task-form">
+
+                    <div class="form-title">
+                        <span>✦</span>
+                        <div>
+                            <h3>Add your own study topic</h3>
+                            <p>Your built-in topics are already available in My Subjects.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="taskSubject">Subject</label>
+                            <select id="taskSubject" required>
+                                <option value="">Select subject</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskName">Topic name</label>
+                            <input type="text" id="taskName" placeholder="e.g. Arrays and loops" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskDate">Study date</label>
+                            <input type="date" id="taskDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+                            <select id="taskPriority">
+                                <option value="Normal">Normal</option>
+                                <option value="Important">Important</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="primary-button add-task-button">+ Add topic</button>
+                </form>
+            </div>
+
+            <div class="task-toolbar">
+                <div>
+                    <h3>Your study tasks</h3>
+                    <p>Keep track of what needs to be done.</p>
+                </div>
+
+                <select id="taskFilter" class="filter-select">
+                    <option value="all">All topics</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="missed">Missed</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+        </section>
+
+        <footer>
+            <div class="footer-brand">StudyRescue <span>✦</span></div>
+            <p>Progress, not perfection. Keep showing up for yourself.</p>
+            <small>© 2026 StudyRescue. Your journey, your pace.</small>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
