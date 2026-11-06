@@ -1,2 +1,2 @@
 # StudyRescue
-A study planner to manage subjects, track tasks, and monitor study progress.
+A Study Planner to Manage subjects, Track Tasks, and Monitor Study Progress.
